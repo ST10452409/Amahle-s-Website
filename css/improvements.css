@@ -1,0 +1,282 @@
+/* Colour-neutral enhancements: inherits your existing palette from style.css */
+html {
+    scroll-behavior: smooth
+}
+
+img {
+    max-width: 100%
+}
+
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 10000;
+    padding: .7rem 1.1rem;
+    background: #fff;
+    color: #05142d;
+    font-weight: 600;
+    border-radius: 0 0 8px 0
+}
+
+    .skip-link:focus {
+        left: 0
+    }
+
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+    outline: 3px solid currentColor;
+    outline-offset: 3px
+}
+
+.why-grid p {
+    margin-top: .4rem;
+    font-size: .92rem;
+    opacity: .85
+}
+
+@media (prefers-reduced-motion:reduce) {
+    html {
+        scroll-behavior: auto
+    }
+
+    * {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important
+    }
+}
+
+/* ---------- navigation ---------- */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000
+}
+
+nav a {
+    transition: color .2s ease
+}
+
+    nav ul a:hover, nav a.active {
+        color: #D4AF37
+    }
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: 1px solid #D4AF37;
+    color: #D4AF37;
+    font-size: 22px;
+    line-height: 1;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer
+}
+
+/* ---------- buttons: navy text on gold for readable contrast ---------- */
+.btn, .primary-btn {
+    color: #001B44;
+    font-weight: 600;
+    display: inline-block;
+    transition: transform .2s ease,box-shadow .2s ease
+}
+
+    .btn:hover, .primary-btn:hover, .secondary-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0,27,68,.25)
+    }
+
+.secondary-btn {
+    display: inline-block;
+    transition: transform .2s ease,box-shadow .2s ease
+}
+
+.service-card a:hover {
+    color: #001B44
+}
+
+.why-grid div:hover, .why-grid div:hover h3, .why-grid div:hover p, .why-grid div:hover i {
+    color: #001B44
+}
+
+.cta .primary-btn, .about-cta .primary-btn {
+    margin-top: 4px
+}
+
+/* ---------- home hero slideshow was collapsing to a thin strip ---------- */
+.image-slideshow {
+    aspect-ratio: 4/3;
+    min-height: 0;
+    box-shadow: 0 20px 40px rgba(0,27,68,.2)
+}
+
+.hero-image img {
+    border-radius: 20px
+}
+
+/* ---------- responsive (style.css had none for the main pages) ---------- */
+@media(max-width:900px) {
+    nav {
+        flex-wrap: wrap;
+        gap: 14px
+    }
+
+    .nav-toggle {
+        display: block
+    }
+
+    nav ul {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 0;
+        order: 3
+    }
+
+    nav.open ul {
+        display: flex
+    }
+
+    nav ul a {
+        display: block;
+        padding: 12px 0;
+        border-top: 1px solid rgba(255,255,255,.12)
+    }
+
+    nav > .btn {
+        display: none;
+        order: 4
+    }
+
+    nav.open > .btn {
+        display: inline-block
+    }
+
+    .hero {
+        flex-direction: column;
+        padding: 50px 6%;
+        gap: 40px;
+        text-align: center
+    }
+
+    .hero-text, .hero-image {
+        width: 100%
+    }
+
+    .hero h1 {
+        font-size: 40px
+    }
+
+    .buttons {
+        justify-content: center;
+        flex-wrap: wrap
+    }
+
+    .cards {
+        grid-template-columns: repeat(2,1fr)
+    }
+
+    .about {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px
+    }
+
+    .about-image img {
+        width: 100%;
+        max-width: 350px
+    }
+
+    .services, .about {
+        padding: 60px 6%
+    }
+}
+
+@media(max-width:600px) {
+    header {
+        padding: 16px 6%
+    }
+
+    .logo {
+        font-size: 24px
+    }
+
+    .cards {
+        grid-template-columns: 1fr
+    }
+
+    .hero h1 {
+        font-size: 32px
+    }
+
+    .cta {
+        padding: 60px 6%
+    }
+
+    .services h2, .about-text h2, .about-cta h2, .why h2, .values h2 {
+        font-size: 28px
+    }
+
+    .service-banner h1, .about-hero h1 {
+        font-size: 32px
+    }
+
+    .service-banner p, .about-hero p {
+        font-size: 16px
+    }
+
+    .service-card {
+        padding: 32px
+    }
+
+    .services-container, .why, .about-cta, .why-us, .values {
+        padding-left: 6%;
+        padding-right: 6%
+    }
+
+    .stat h2 {
+        font-size: 44px
+    }
+}
+
+/* ---------- picture slideshow behind inner-page banners (same as About) ---------- */
+.service-banner {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate
+}
+
+    .service-banner .about-slideshow {
+        position: absolute;
+        inset: 0;
+        z-index: -2;
+        overflow: hidden
+    }
+
+        .service-banner .about-slideshow img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out
+        }
+
+            .service-banner .about-slideshow img.active {
+                opacity: 1
+            }
+
+    .service-banner::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: rgba(5,20,45,.58);
+        pointer-events: none
+    }
+
+    .service-banner h1, .service-banner p {
+        position: relative;
+        z-index: 1
+    }

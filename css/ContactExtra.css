@@ -1,0 +1,481 @@
+/* =========================================================
+   AM Tender Admin — contact.html interactive additions
+   Everything here is namespaced (ct-*) so it never collides
+   with the shared classes already styled in css/style.css.
+   Link this AFTER css/style.css.
+   ========================================================= */
+
+.ct-form-section{
+  max-width: 1000px;
+  margin: 20px auto 90px;
+  padding: 0 24px;
+}
+
+.ct-form-head{
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.ct-eyebrow{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: .74rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #C9A227;
+  margin-bottom: 10px;
+}
+
+.ct-eyebrow::before,
+.ct-eyebrow::after{
+  content: "";
+  width: 26px;
+  height: 1px;
+  background: #C9A227;
+}
+
+.ct-form-section h2{
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+  margin-bottom: 8px;
+  color: #0B1E3F;
+  font-size: 2rem;
+}
+
+.ct-form-sub{
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  color: #666;
+  margin: 0 auto;
+  max-width: 480px;
+}
+
+/* two-column layout: form card + side panel */
+.ct-form-grid{
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.ct-form-card{
+  background: #fff;
+  border-radius: 14px;
+  padding: 42px 40px;
+  box-shadow: 0 16px 40px rgba(11,30,63,0.09);
+  border-top: 4px solid #C9A227;
+  position: relative;
+}
+
+.ct-side-panel{
+  background: linear-gradient(160deg, #0B1E3F 0%, #12294f 100%);
+  border-radius: 14px;
+  padding: 36px 32px;
+  color: #fff;
+}
+
+.ct-side-panel h3{
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  color: #E4C766;
+  margin-bottom: 22px;
+}
+
+.ct-step{
+  display: flex;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.ct-step:last-child{
+  margin-bottom: 0;
+}
+
+.ct-step .num{
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(228,199,102,0.15);
+  color: #E4C766;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: .85rem;
+}
+
+.ct-step h4{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: .88rem;
+  margin-bottom: 3px;
+  color: #fff;
+}
+
+.ct-step p{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: .8rem;
+  color: #c3cadb;
+  margin: 0;
+}
+
+.ct-side-divider{
+  height: 1px;
+  background: rgba(255,255,255,0.12);
+  margin: 28px 0;
+}
+
+.ct-side-trust{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-size: .8rem;
+  color: #d9dee8;
+  margin-bottom: 12px;
+}
+
+.ct-side-trust i{
+  color: #C9A227;
+}
+
+.ct-field{
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.ct-row{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.ct-field label{
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: .8rem;
+  margin-bottom: 7px;
+  color: #0B1E3F;
+}
+
+.ct-field label i{
+  color: #C9A227;
+  font-size: .82rem;
+  width: 14px;
+  text-align: center;
+}
+
+.ct-field input,
+.ct-field select,
+.ct-field textarea{
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  font-size: .92rem;
+  padding: 13px 16px;
+  border: 1px solid #e4e4e4;
+  border-radius: 8px;
+  background: #FAF8F4;
+  transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
+}
+
+.ct-field select{
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' stroke='%23C9A227' stroke-width='1.6' fill='none' fill-rule='evenodd'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+}
+
+.ct-field input:focus,
+.ct-field select:focus,
+.ct-field textarea:focus{
+  outline: none;
+  border-color: #C9A227;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(201,162,39,0.15);
+}
+
+.ct-field.invalid input,
+.ct-field.invalid textarea{
+  border-color: #d9534f;
+}
+
+.ct-error{
+  display: none;
+  font-size: .76rem;
+  color: #d9534f;
+  margin-top: 5px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.ct-field.invalid .ct-error{
+  display: block;
+}
+
+.ct-field textarea{
+  resize: vertical;
+  min-height: 120px;
+}
+
+.ct-count{
+  position: absolute;
+  right: 4px;
+  bottom: -18px;
+  font-size: .72rem;
+  color: #999;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* live price estimate that reacts to the service dropdown */
+.ct-estimate{
+  display: none;
+  align-items: center;
+  gap: 14px;
+  background: linear-gradient(135deg, #0B1E3F 0%, #16305c 100%);
+  color: #E4C766;
+  padding: 16px 20px;
+  border-radius: 10px;
+  margin-bottom: 26px;
+  font-family: 'Poppins', sans-serif;
+  font-size: .88rem;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity .25s ease, transform .25s ease;
+}
+
+.ct-estimate.show{
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ct-estimate i{
+  font-size: 1.1rem;
+}
+
+.ct-estimate strong{
+  font-size: 1.05rem;
+  color: #fff;
+}
+
+.ct-submit-row{
+  margin-top: 16px;
+}
+
+.ct-submit-row button{
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  justify-content: center;
+  padding: 15px 24px;
+  font-size: .94rem;
+  letter-spacing: .3px;
+  border-radius: 8px;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.ct-submit-row button:hover:not(:disabled){
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(11,30,63,0.22);
+}
+
+.ct-submit-row button:disabled{
+  opacity: .6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.ct-toast{
+  position: fixed;
+  left: 50%;
+  bottom: 30px;
+  transform: translate(-50%, 20px);
+  background: #0B1E3F;
+  color: #fff;
+  padding: 14px 26px;
+  border-radius: 30px;
+  font-family: 'Poppins', sans-serif;
+  font-size: .88rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s ease, transform .25s ease;
+  z-index: 999;
+  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+}
+
+.ct-toast.show{
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* copy-to-clipboard buttons on the contact method cards */
+.ct-copy{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  background: none;
+  border: 1px solid #C9A227;
+  color: inherit;
+  font-family: 'Poppins', sans-serif;
+  font-size: .74rem;
+  padding: 5px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background .15s ease, color .15s ease;
+}
+
+.ct-copy:hover{
+  background: #C9A227;
+  color: #0B1E3F;
+}
+
+/* accordion built on top of the "why" grid pattern */
+.ct-accordion{
+  max-width: 800px;
+  margin: 0 auto 80px;
+  padding: 0 24px;
+}
+
+.ct-accordion > .ct-form-head{
+  margin-bottom: 34px;
+}
+
+.ct-acc-list{
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 12px 32px rgba(11,30,63,0.07);
+  overflow: hidden;
+}
+
+.ct-acc-item{
+  border-bottom: 1px solid #f0ece0;
+}
+
+.ct-acc-item:last-child{
+  border-bottom: none;
+}
+
+.ct-acc-item button{
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 22px 26px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: .95rem;
+  color: #0B1E3F;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  transition: background .15s ease;
+}
+
+.ct-acc-item button:hover{
+  background: #FAF8F4;
+}
+
+.ct-acc-item .q-left{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.ct-acc-item .q-icon{
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(201,162,39,0.12);
+  color: #C9A227;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .85rem;
+}
+
+.ct-acc-item button > i.fa-plus{
+  transition: transform .2s ease;
+  color: #C9A227;
+  flex-shrink: 0;
+}
+
+.ct-acc-item.open button > i.fa-plus{
+  transform: rotate(45deg);
+}
+
+.ct-acc-panel{
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .25s ease;
+}
+
+.ct-acc-item.open .ct-acc-panel{
+  max-height: 200px;
+}
+
+.ct-acc-panel p{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: .88rem;
+  color: #666;
+  padding: 0 26px 22px 74px;
+}
+
+/* floating whatsapp button */
+.ct-float-whatsapp{
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+  z-index: 998;
+  animation: ct-pulse 2.4s infinite;
+}
+
+@keyframes ct-pulse{
+  0%   { box-shadow: 0 0 0 0 rgba(37,211,102,.5); }
+  70%  { box-shadow: 0 0 0 14px rgba(37,211,102,0); }
+  100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+}
+
+@media (max-width: 780px){
+  .ct-form-grid{
+    grid-template-columns: 1fr;
+  }
+  .ct-form-card{
+    padding: 32px 24px;
+  }
+}
+
+@media (max-width: 700px){
+  .ct-row{
+    grid-template-columns: 1fr;
+  }
+}

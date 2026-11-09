@@ -1,0 +1,362 @@
+/* =========================================================
+   AM Tender Admin — Pricing & Contact page additions
+   Append to css/style.css, or keep as a separate file and
+   link it after style.css on pricing.html / contact.html.
+   Uses the same brand tokens as the rest of the site:
+   navy  #0B1E3F   gold  #C9A227   cream #FAF8F4
+   ========================================================= */
+
+:root{
+  --amt-navy: #0B1E3F;
+  --amt-navy-light: #12294f;
+  --amt-gold: #C9A227;
+  --amt-gold-light: #E4C766;
+  --amt-cream: #FAF8F4;
+  --amt-text: #2b2b2b;
+}
+
+/* ---------- shared banner (pricing + contact hero) ---------- */
+.pricing-banner,
+.contact-banner{
+  background: linear-gradient(135deg, var(--amt-navy) 0%, var(--amt-navy-light) 100%);
+  color: #fff;
+  text-align: center;
+  padding: 110px 24px 80px;
+}
+
+.pricing-banner h1,
+.contact-banner h1{
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6rem;
+  color: #fff;
+  margin-bottom: 14px;
+}
+
+.pricing-banner p,
+.contact-banner p{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  color: #d9dee8;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.pricing-banner .note,
+.contact-banner .note{
+  margin-top: 18px;
+  display: inline-block;
+  font-style: italic;
+  font-size: .85rem;
+  color: var(--amt-gold-light);
+}
+
+/* ---------- pricing cards ---------- */
+.pricing-container{
+  max-width: 1000px;
+  margin: -40px auto 0;
+  padding: 0 24px 40px;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.pricing-card{
+  background: #fff;
+  border: 1px solid #eee0bd;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(11,30,63,0.08);
+  padding: 26px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.pricing-card .pc-left{
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  flex: 1;
+  min-width: 240px;
+}
+
+.pricing-card .pc-number{
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: var(--amt-gold);
+  line-height: 1;
+}
+
+.pricing-card h3{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: var(--amt-navy);
+  margin-bottom: 6px;
+  font-size: 1.1rem;
+}
+
+.pricing-card p{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: .92rem;
+  color: #555;
+  margin: 0;
+}
+
+.pricing-card .pc-badge{
+  margin-top: 8px;
+  display: inline-block;
+  font-size: .72rem;
+  font-weight: 600;
+  color: var(--amt-navy);
+  background: var(--amt-gold-light);
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.pricing-card .pc-price{
+  background: var(--amt-navy);
+  color: var(--amt-gold-light);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1.15rem;
+  padding: 14px 26px;
+  border-radius: 6px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.pricing-card .pc-price span{
+  display: block;
+  font-size: .65rem;
+  font-weight: 400;
+  color: #cfd6e4;
+  letter-spacing: .5px;
+  margin-top: 2px;
+}
+
+.pricing-card.featured{
+  border: 1px solid var(--amt-gold);
+  background: linear-gradient(135deg, #fffdf6 0%, #fff 100%);
+}
+
+/* ---------- whatsapp / consultation strip ---------- */
+.pricing-strip{
+  max-width: 1000px;
+  margin: 10px auto 60px;
+  padding: 0 24px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.pricing-strip .strip-box{
+  flex: 1;
+  min-width: 260px;
+  background: var(--amt-navy);
+  color: #fff;
+  border-radius: 10px;
+  padding: 22px 26px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.pricing-strip .strip-box.gold{
+  background: linear-gradient(135deg, var(--amt-gold) 0%, var(--amt-gold-light) 100%);
+  color: var(--amt-navy);
+}
+
+.pricing-strip h4{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.pricing-strip p{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: .85rem;
+  margin: 0;
+}
+
+.pricing-strip i{
+  font-size: 1.6rem;
+}
+
+/* ---------- contact page ---------- */
+.contact-container{
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 40px;
+}
+
+.contact-info{
+  background: var(--amt-navy);
+  color: #fff;
+  border-radius: 12px;
+  padding: 40px 32px;
+}
+
+.contact-info h2{
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--amt-gold-light);
+  margin-bottom: 12px;
+}
+
+.contact-info p{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  color: #d9dee8;
+  font-size: .92rem;
+  margin-bottom: 30px;
+}
+
+.contact-item{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.contact-item i{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(201,162,39,0.15);
+  color: var(--amt-gold-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-item h4{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: .85rem;
+  margin-bottom: 2px;
+  color: #fff;
+}
+
+.contact-item a,
+.contact-item span{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: .88rem;
+  color: #d9dee8;
+  text-decoration: none;
+}
+
+.contact-info .whatsapp-btn{
+  margin-top: 10px;
+  display: inline-block;
+  background: var(--amt-gold);
+  color: var(--amt-navy);
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: .9rem;
+}
+
+.contact-form{
+  background: #fff;
+  border: 1px solid #eee0bd;
+  border-radius: 12px;
+  padding: 40px 36px;
+  box-shadow: 0 8px 24px rgba(11,30,63,0.06);
+}
+
+.contact-form h2{
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--amt-navy);
+  margin-bottom: 24px;
+}
+
+.form-group{
+  margin-bottom: 18px;
+}
+
+.form-group label{
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: .82rem;
+  color: var(--amt-navy);
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  font-size: .9rem;
+  padding: 12px 14px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: var(--amt-cream);
+  color: var(--amt-text);
+}
+
+.form-group textarea{
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-row{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.contact-form .submit-btn{
+  border: none;
+  cursor: pointer;
+  background: var(--amt-navy);
+  color: var(--amt-gold-light);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: .9rem;
+  padding: 14px 30px;
+  border-radius: 6px;
+  transition: background .2s ease;
+}
+
+.contact-form .submit-btn:hover{
+  background: var(--amt-navy-light);
+}
+
+.form-note{
+  font-size: .78rem;
+  color: #888;
+  margin-top: 10px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 760px){
+  .contact-container{
+    grid-template-columns: 1fr;
+  }
+  .pricing-card{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .pricing-card .pc-price{
+    align-self: stretch;
+  }
+  .form-row{
+    grid-template-columns: 1fr;
+  }
+}
